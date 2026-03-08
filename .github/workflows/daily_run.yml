@@ -1,7 +1,10 @@
 name: Daily Agent Improvement Cycle
 on:
   schedule:
+    - cron: "15 2 * * *"
     - cron: "15 8 * * *"
+    - cron: "15 14 * * *"
+    - cron: "15 20 * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -24,5 +27,5 @@ jobs:
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
           git add logs/
-          git diff --cached --quiet || git commit -m "agent-improvement: daily cycle $(date -u +%Y-%m-%d)"
+          git diff --cached --quiet || git commit -m "agent-improvement: daily cycle $(date -u +%Y-%m-%dT%H:%M)"
           git push || echo "Nothing to push"

@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """Agent Improvement Loop — Perceive, Reason, Act, Refine with visual analytics."""
-import json, os, random, hashlib, datetime, glob
+import json
+import os
+import random
+import hashlib
+import datetime
+import glob
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 
 DOMAINS = [
     {"name": "code_review", "signals": ["complexity", "duplication", "coverage"]},
@@ -164,16 +168,16 @@ def main():
     md.append(f"![Dashboard]({os.path.basename(chart_path)})\n")
     if os.path.exists(f"logs/{date_str}_trend.png"):
         md.append(f"![Trend]({date_str}_trend.png)\n")
-    md.append(f"## Risk Matrix\n")
-    md.append(f"| Domain | Risk Score | Decision | Alerts |")
-    md.append(f"|--------|-----------|----------|--------|")
+    md.append("## Risk Matrix\n")
+    md.append("| Domain | Risk Score | Decision | Alerts |")
+    md.append("|--------|-----------|----------|--------|")
     for d in log["domains"]:
         alerts = ", ".join(d["reasoning"]["alerts"]) or "none"
         md.append(f"| {d['domain']} | {d['reasoning']['risk_score']} | {d['reasoning']['decision']} | {alerts} |")
     if log["delta"]["status"] == "compared":
-        md.append(f"\n## Delta vs Yesterday\n")
-        md.append(f"| Domain | Today | Yesterday | Change |")
-        md.append(f"|--------|-------|-----------|--------|")
+        md.append("\n## Delta vs Yesterday\n")
+        md.append("| Domain | Today | Yesterday | Change |")
+        md.append("|--------|-------|-----------|--------|")
         for domain, delta in log["delta"]["deltas"].items():
             arrow = "📈" if delta["change_pct"] > 0 else "📉" if delta["change_pct"] < 0 else "➡️"
             md.append(f"| {domain} | {delta['today']} | {delta['yesterday']} | {arrow} {delta['change_pct']}% |")
@@ -181,7 +185,7 @@ def main():
 
     with open(f"logs/{date_str}.md", "w") as f:
         f.write("\n".join(md))
-    print(f"[agent-improvement] v2.0 report + charts generated")
+    print("[agent-improvement] v2.0 report + charts generated")
 
 if __name__ == "__main__":
     main()
