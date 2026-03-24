@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-24T04:26:52.938261+00:00",
-  "cycle_id": "b364d6f5",
+  "timestamp": "2026-03-24T09:08:59.227711+00:00",
+  "cycle_id": "4de067d3",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.0578,
-        "duplication": 0.4329,
-        "coverage": 0.7673,
-        "_hash": "ea6bf2efd4ee"
+        "complexity": 0.754,
+        "duplication": 0.9946,
+        "coverage": 0.6364,
+        "_hash": "1435881272d2"
       },
       "reasoning": {
         "alerts": [
-          "coverage"
+          "complexity",
+          "duplication"
         ],
-        "risk_score": 0.4193,
-        "decision": "monitor"
+        "risk_score": 0.795,
+        "decision": "intervene"
       },
       "actions": [
         {
-          "action": "log_and_watch",
-          "priority": "low",
-          "status": "scheduled"
+          "action": "mitigate_complexity",
+          "priority": "high",
+          "status": "executed"
+        },
+        {
+          "action": "mitigate_duplication",
+          "priority": "high",
+          "status": "executed"
         }
       ]
     },
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.9243,
-        "blast_radius": 0.532,
-        "mttr": 0.8671,
-        "_hash": "df8ccf1211f7"
+        "severity": 0.7096,
+        "blast_radius": 0.3421,
+        "mttr": 0.7824,
+        "_hash": "e63f49812bc6"
       },
       "reasoning": {
         "alerts": [
-          "severity",
           "mttr"
         ],
-        "risk_score": 0.7745,
+        "risk_score": 0.6114,
         "decision": "intervene"
       },
       "actions": [
-        {
-          "action": "mitigate_severity",
-          "priority": "high",
-          "status": "executed"
-        },
         {
           "action": "mitigate_mttr",
           "priority": "high",
@@ -57,14 +57,14 @@
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.4146,
-        "schema_drift": 0.0069,
-        "volume_anomaly": 0.3449,
-        "_hash": "0fb4a090e95d"
+        "freshness": 0.0723,
+        "schema_drift": 0.3035,
+        "volume_anomaly": 0.0086,
+        "_hash": "0d99d93ca426"
       },
       "reasoning": {
         "alerts": [],
-        "risk_score": 0.2555,
+        "risk_score": 0.1281,
         "decision": "monitor"
       },
       "actions": [
@@ -78,14 +78,14 @@
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.4554,
-        "canary_error": 0.369,
-        "latency_p99": 0.0591,
-        "_hash": "8e15d1d2ef5f"
+        "rollback_rate": 0.3013,
+        "canary_error": 0.2272,
+        "latency_p99": 0.5489,
+        "_hash": "db0632e65811"
       },
       "reasoning": {
         "alerts": [],
-        "risk_score": 0.2945,
+        "risk_score": 0.3591,
         "decision": "monitor"
       },
       "actions": [
@@ -104,34 +104,34 @@
   },
   "summary": {
     "total_domains": 4,
-    "interventions": 1,
-    "avg_risk": 0.436
+    "interventions": 2,
+    "avg_risk": 0.4734
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.4193,
+        "today": 0.795,
         "yesterday": 0.4489,
-        "change_pct": -6.6,
-        "direction": "down"
-      },
-      "incident_response": {
-        "today": 0.7745,
-        "yesterday": 0.6761,
-        "change_pct": 14.6,
+        "change_pct": 77.1,
         "direction": "up"
       },
+      "incident_response": {
+        "today": 0.6114,
+        "yesterday": 0.6761,
+        "change_pct": -9.6,
+        "direction": "down"
+      },
       "data_pipeline": {
-        "today": 0.2555,
+        "today": 0.1281,
         "yesterday": 0.7056,
-        "change_pct": -63.8,
+        "change_pct": -81.8,
         "direction": "down"
       },
       "deployment": {
-        "today": 0.2945,
+        "today": 0.3591,
         "yesterday": 0.2064,
-        "change_pct": 42.7,
+        "change_pct": 74.0,
         "direction": "up"
       }
     }
