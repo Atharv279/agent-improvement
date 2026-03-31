@@ -1,20 +1,21 @@
 {
-  "timestamp": "2026-03-31T09:17:36.309264+00:00",
-  "cycle_id": "fa58467a",
+  "timestamp": "2026-03-31T15:36:39.308062+00:00",
+  "cycle_id": "9a459270",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.6742,
-        "duplication": 0.1184,
-        "coverage": 0.8768,
-        "_hash": "53a4793fbc20"
+        "complexity": 0.8187,
+        "duplication": 0.8427,
+        "coverage": 0.0134,
+        "_hash": "06d251e0a4a5"
       },
       "reasoning": {
         "alerts": [
-          "coverage"
+          "complexity",
+          "duplication"
         ],
-        "risk_score": 0.5565,
+        "risk_score": 0.5583,
         "decision": "monitor"
       },
       "actions": [
@@ -28,37 +29,35 @@
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.4824,
-        "blast_radius": 0.431,
-        "mttr": 0.9223,
-        "_hash": "eb21dfe8247f"
+        "severity": 0.0228,
+        "blast_radius": 0.0396,
+        "mttr": 0.3097,
+        "_hash": "fa59be727243"
       },
       "reasoning": {
-        "alerts": [
-          "mttr"
-        ],
-        "risk_score": 0.6119,
-        "decision": "intervene"
+        "alerts": [],
+        "risk_score": 0.124,
+        "decision": "monitor"
       },
       "actions": [
         {
-          "action": "mitigate_mttr",
-          "priority": "high",
-          "status": "executed"
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
         }
       ]
     },
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.7493,
-        "schema_drift": 0.5235,
-        "volume_anomaly": 0.1,
-        "_hash": "70c2b829c4f6"
+        "freshness": 0.3682,
+        "schema_drift": 0.0843,
+        "volume_anomaly": 0.0141,
+        "_hash": "594cdeb3a872"
       },
       "reasoning": {
         "alerts": [],
-        "risk_score": 0.4576,
+        "risk_score": 0.1555,
         "decision": "monitor"
       },
       "actions": [
@@ -72,63 +71,55 @@
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.1144,
-        "canary_error": 0.3479,
-        "latency_p99": 0.7946,
-        "_hash": "781ac389cef5"
+        "rollback_rate": 0.7444,
+        "canary_error": 0.7258,
+        "latency_p99": 0.5694,
+        "_hash": "ead4e0c1ac3c"
       },
       "reasoning": {
-        "alerts": [
-          "latency_p99"
-        ],
-        "risk_score": 0.419,
-        "decision": "monitor"
+        "alerts": [],
+        "risk_score": 0.6799,
+        "decision": "intervene"
       },
-      "actions": [
-        {
-          "action": "log_and_watch",
-          "priority": "low",
-          "status": "scheduled"
-        }
-      ]
+      "actions": []
     }
   ],
   "refinement": {
-    "adjustment": "maintain",
-    "trend": "improving",
+    "adjustment": "tighten_thresholds",
+    "trend": "degrading",
     "window": 4
   },
   "summary": {
     "total_domains": 4,
     "interventions": 1,
-    "avg_risk": 0.5112
+    "avg_risk": 0.3794
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.5565,
+        "today": 0.5583,
         "yesterday": 0.7883,
-        "change_pct": -29.4,
+        "change_pct": -29.2,
         "direction": "down"
       },
       "incident_response": {
-        "today": 0.6119,
+        "today": 0.124,
         "yesterday": 0.5852,
-        "change_pct": 4.6,
-        "direction": "up"
+        "change_pct": -78.8,
+        "direction": "down"
       },
       "data_pipeline": {
-        "today": 0.4576,
+        "today": 0.1555,
         "yesterday": 0.446,
-        "change_pct": 2.6,
-        "direction": "up"
+        "change_pct": -65.1,
+        "direction": "down"
       },
       "deployment": {
-        "today": 0.419,
+        "today": 0.6799,
         "yesterday": 0.43,
-        "change_pct": -2.6,
-        "direction": "down"
+        "change_pct": 58.1,
+        "direction": "up"
       }
     }
   }
