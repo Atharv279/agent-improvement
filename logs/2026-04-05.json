@@ -1,18 +1,20 @@
 {
-  "timestamp": "2026-04-05T04:44:56.679434+00:00",
-  "cycle_id": "5c3b901d",
+  "timestamp": "2026-04-05T09:00:22.202415+00:00",
+  "cycle_id": "c1030e87",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.7176,
-        "duplication": 0.4614,
-        "coverage": 0.5521,
-        "_hash": "03e392b7a273"
+        "complexity": 0.2445,
+        "duplication": 0.9035,
+        "coverage": 0.5379,
+        "_hash": "d08126e536c6"
       },
       "reasoning": {
-        "alerts": [],
-        "risk_score": 0.577,
+        "alerts": [
+          "duplication"
+        ],
+        "risk_score": 0.562,
         "decision": "monitor"
       },
       "actions": [
@@ -26,14 +28,16 @@
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.4747,
-        "blast_radius": 0.3452,
-        "mttr": 0.4496,
-        "_hash": "5c0fa1fb95fd"
+        "severity": 0.1563,
+        "blast_radius": 0.4708,
+        "mttr": 0.7781,
+        "_hash": "bd7e828c0667"
       },
       "reasoning": {
-        "alerts": [],
-        "risk_score": 0.4232,
+        "alerts": [
+          "mttr"
+        ],
+        "risk_score": 0.4684,
         "decision": "monitor"
       },
       "actions": [
@@ -47,44 +51,48 @@
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.9726,
-        "schema_drift": 0.3541,
-        "volume_anomaly": 0.6802,
-        "_hash": "0aa75299a2c7"
+        "freshness": 0.526,
+        "schema_drift": 0.5286,
+        "volume_anomaly": 0.7232,
+        "_hash": "6957241367e1"
       },
       "reasoning": {
-        "alerts": [
-          "freshness"
-        ],
-        "risk_score": 0.669,
-        "decision": "intervene"
+        "alerts": [],
+        "risk_score": 0.5926,
+        "decision": "monitor"
       },
       "actions": [
         {
-          "action": "mitigate_freshness",
-          "priority": "high",
-          "status": "executed"
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
         }
       ]
     },
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.652,
-        "canary_error": 0.5027,
-        "latency_p99": 0.8769,
-        "_hash": "c010fe4e13d5"
+        "rollback_rate": 0.7961,
+        "canary_error": 0.8226,
+        "latency_p99": 0.4531,
+        "_hash": "60dcf5f85964"
       },
       "reasoning": {
         "alerts": [
-          "latency_p99"
+          "rollback_rate",
+          "canary_error"
         ],
-        "risk_score": 0.6772,
+        "risk_score": 0.6906,
         "decision": "intervene"
       },
       "actions": [
         {
-          "action": "mitigate_latency_p99",
+          "action": "mitigate_rollback_rate",
+          "priority": "high",
+          "status": "executed"
+        },
+        {
+          "action": "mitigate_canary_error",
           "priority": "high",
           "status": "executed"
         }
@@ -98,34 +106,34 @@
   },
   "summary": {
     "total_domains": 4,
-    "interventions": 2,
-    "avg_risk": 0.5866
+    "interventions": 1,
+    "avg_risk": 0.5784
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.577,
+        "today": 0.562,
         "yesterday": 0.4989,
-        "change_pct": 15.7,
+        "change_pct": 12.6,
         "direction": "up"
       },
       "incident_response": {
-        "today": 0.4232,
+        "today": 0.4684,
         "yesterday": 0.368,
-        "change_pct": 15.0,
+        "change_pct": 27.3,
         "direction": "up"
       },
       "data_pipeline": {
-        "today": 0.669,
+        "today": 0.5926,
         "yesterday": 0.5464,
-        "change_pct": 22.4,
+        "change_pct": 8.5,
         "direction": "up"
       },
       "deployment": {
-        "today": 0.6772,
+        "today": 0.6906,
         "yesterday": 0.6484,
-        "change_pct": 4.4,
+        "change_pct": 6.5,
         "direction": "up"
       }
     }
