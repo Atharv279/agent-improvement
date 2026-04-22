@@ -1,35 +1,39 @@
 {
-  "timestamp": "2026-04-22T05:07:09.056010+00:00",
-  "cycle_id": "7bf4a464",
+  "timestamp": "2026-04-22T09:51:57.906639+00:00",
+  "cycle_id": "b438dbcd",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.7255,
-        "duplication": 0.5887,
-        "coverage": 0.5906,
-        "_hash": "5b5c13016931"
+        "complexity": 0.4262,
+        "duplication": 0.5115,
+        "coverage": 0.4664,
+        "_hash": "16bafb347098"
       },
       "reasoning": {
         "alerts": [],
-        "risk_score": 0.6349,
-        "decision": "intervene"
+        "risk_score": 0.468,
+        "decision": "monitor"
       },
-      "actions": []
+      "actions": [
+        {
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
+        }
+      ]
     },
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.6094,
-        "blast_radius": 0.7647,
-        "mttr": 0.1292,
-        "_hash": "d08eb75000c4"
+        "severity": 0.6151,
+        "blast_radius": 0.2827,
+        "mttr": 0.3983,
+        "_hash": "55c2667edd56"
       },
       "reasoning": {
-        "alerts": [
-          "blast_radius"
-        ],
-        "risk_score": 0.5011,
+        "alerts": [],
+        "risk_score": 0.432,
         "decision": "monitor"
       },
       "actions": [
@@ -43,45 +47,35 @@
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.8786,
-        "schema_drift": 0.4257,
-        "volume_anomaly": 0.8208,
-        "_hash": "7e7c10764bf3"
+        "freshness": 0.4947,
+        "schema_drift": 0.0006,
+        "volume_anomaly": 0.0378,
+        "_hash": "cd6d9fc1026f"
       },
       "reasoning": {
-        "alerts": [
-          "freshness",
-          "volume_anomaly"
-        ],
-        "risk_score": 0.7084,
-        "decision": "intervene"
+        "alerts": [],
+        "risk_score": 0.1777,
+        "decision": "monitor"
       },
       "actions": [
         {
-          "action": "mitigate_freshness",
-          "priority": "high",
-          "status": "executed"
-        },
-        {
-          "action": "mitigate_volume_anomaly",
-          "priority": "high",
-          "status": "executed"
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
         }
       ]
     },
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.1346,
-        "canary_error": 0.8856,
-        "latency_p99": 0.0705,
-        "_hash": "4e2b57ff2c75"
+        "rollback_rate": 0.013,
+        "canary_error": 0.2203,
+        "latency_p99": 0.6324,
+        "_hash": "b87feea6948c"
       },
       "reasoning": {
-        "alerts": [
-          "canary_error"
-        ],
-        "risk_score": 0.3636,
+        "alerts": [],
+        "risk_score": 0.2886,
         "decision": "monitor"
       },
       "actions": [
@@ -100,35 +94,35 @@
   },
   "summary": {
     "total_domains": 4,
-    "interventions": 2,
-    "avg_risk": 0.552
+    "interventions": 0,
+    "avg_risk": 0.3416
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.6349,
+        "today": 0.468,
         "yesterday": 0.4449,
-        "change_pct": 42.7,
+        "change_pct": 5.2,
         "direction": "up"
       },
       "incident_response": {
-        "today": 0.5011,
+        "today": 0.432,
         "yesterday": 0.7048,
-        "change_pct": -28.9,
+        "change_pct": -38.7,
         "direction": "down"
       },
       "data_pipeline": {
-        "today": 0.7084,
+        "today": 0.1777,
         "yesterday": 0.4874,
-        "change_pct": 45.3,
-        "direction": "up"
+        "change_pct": -63.5,
+        "direction": "down"
       },
       "deployment": {
-        "today": 0.3636,
+        "today": 0.2886,
         "yesterday": 0.3441,
-        "change_pct": 5.7,
-        "direction": "up"
+        "change_pct": -16.1,
+        "direction": "down"
       }
     }
   }
