@@ -1,18 +1,20 @@
 {
-  "timestamp": "2026-05-06T10:27:09.393136+00:00",
-  "cycle_id": "e8a23bbd",
+  "timestamp": "2026-05-06T16:11:58.584650+00:00",
+  "cycle_id": "a0049ad0",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.1086,
-        "duplication": 0.3457,
-        "coverage": 0.1323,
-        "_hash": "eea0cbbb2883"
+        "complexity": 0.5657,
+        "duplication": 0.8238,
+        "coverage": 0.2356,
+        "_hash": "5327ae2f0159"
       },
       "reasoning": {
-        "alerts": [],
-        "risk_score": 0.1955,
+        "alerts": [
+          "duplication"
+        ],
+        "risk_score": 0.5417,
         "decision": "monitor"
       },
       "actions": [
@@ -26,16 +28,14 @@
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.112,
-        "blast_radius": 0.9016,
-        "mttr": 0.3255,
-        "_hash": "0abf182fdcb9"
+        "severity": 0.3782,
+        "blast_radius": 0.5131,
+        "mttr": 0.4235,
+        "_hash": "ec3ea7da6184"
       },
       "reasoning": {
-        "alerts": [
-          "blast_radius"
-        ],
-        "risk_score": 0.4464,
+        "alerts": [],
+        "risk_score": 0.4383,
         "decision": "monitor"
       },
       "actions": [
@@ -49,45 +49,37 @@
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.9847,
-        "schema_drift": 0.9369,
-        "volume_anomaly": 0.6183,
-        "_hash": "521f3f953a34"
+        "freshness": 0.5862,
+        "schema_drift": 0.352,
+        "volume_anomaly": 0.8297,
+        "_hash": "b6a6fe9562ce"
       },
       "reasoning": {
         "alerts": [
-          "freshness",
-          "schema_drift"
+          "volume_anomaly"
         ],
-        "risk_score": 0.8466,
-        "decision": "intervene"
+        "risk_score": 0.5893,
+        "decision": "monitor"
       },
       "actions": [
         {
-          "action": "mitigate_freshness",
-          "priority": "high",
-          "status": "executed"
-        },
-        {
-          "action": "mitigate_schema_drift",
-          "priority": "high",
-          "status": "executed"
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
         }
       ]
     },
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.1741,
-        "canary_error": 0.811,
-        "latency_p99": 0.3468,
-        "_hash": "e9d775fae5a9"
+        "rollback_rate": 0.4693,
+        "canary_error": 0.5229,
+        "latency_p99": 0.4143,
+        "_hash": "e9ddb1a7297a"
       },
       "reasoning": {
-        "alerts": [
-          "canary_error"
-        ],
-        "risk_score": 0.444,
+        "alerts": [],
+        "risk_score": 0.4688,
         "decision": "monitor"
       },
       "actions": [
@@ -100,41 +92,41 @@
     }
   ],
   "refinement": {
-    "adjustment": "tighten_thresholds",
-    "trend": "degrading",
+    "adjustment": "maintain",
+    "trend": "improving",
     "window": 4
   },
   "summary": {
     "total_domains": 4,
-    "interventions": 1,
-    "avg_risk": 0.4831
+    "interventions": 0,
+    "avg_risk": 0.5095
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.1955,
+        "today": 0.5417,
         "yesterday": 0.7434,
-        "change_pct": -73.7,
+        "change_pct": -27.1,
         "direction": "down"
       },
       "incident_response": {
-        "today": 0.4464,
+        "today": 0.4383,
         "yesterday": 0.8135,
-        "change_pct": -45.1,
+        "change_pct": -46.1,
         "direction": "down"
       },
       "data_pipeline": {
-        "today": 0.8466,
+        "today": 0.5893,
         "yesterday": 0.5555,
-        "change_pct": 52.4,
+        "change_pct": 6.1,
         "direction": "up"
       },
       "deployment": {
-        "today": 0.444,
+        "today": 0.4688,
         "yesterday": 0.4588,
-        "change_pct": -3.2,
-        "direction": "down"
+        "change_pct": 2.2,
+        "direction": "up"
       }
     }
   }
