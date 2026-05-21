@@ -1,20 +1,49 @@
 {
-  "timestamp": "2026-05-21T16:48:47.823545+00:00",
-  "cycle_id": "0511800d",
+  "timestamp": "2026-05-21T21:46:56.420976+00:00",
+  "cycle_id": "97ec94c0",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.8665,
-        "duplication": 0.6843,
-        "coverage": 0.1722,
-        "_hash": "7dac19f11022"
+        "complexity": 0.7958,
+        "duplication": 0.3371,
+        "coverage": 0.9074,
+        "_hash": "f5f2dd0c6bff"
       },
       "reasoning": {
         "alerts": [
-          "complexity"
+          "complexity",
+          "coverage"
         ],
-        "risk_score": 0.5743,
+        "risk_score": 0.6801,
+        "decision": "intervene"
+      },
+      "actions": [
+        {
+          "action": "mitigate_complexity",
+          "priority": "high",
+          "status": "executed"
+        },
+        {
+          "action": "mitigate_coverage",
+          "priority": "high",
+          "status": "executed"
+        }
+      ]
+    },
+    {
+      "domain": "incident_response",
+      "perception": {
+        "severity": 0.0385,
+        "blast_radius": 0.6706,
+        "mttr": 0.7589,
+        "_hash": "1b5c1dbd43f7"
+      },
+      "reasoning": {
+        "alerts": [
+          "mttr"
+        ],
+        "risk_score": 0.4893,
         "decision": "monitor"
       },
       "actions": [
@@ -26,39 +55,19 @@
       ]
     },
     {
-      "domain": "incident_response",
+      "domain": "data_pipeline",
       "perception": {
-        "severity": 0.3219,
-        "blast_radius": 0.7303,
-        "mttr": 0.8241,
-        "_hash": "d6267f53f637"
+        "freshness": 0.8223,
+        "schema_drift": 0.187,
+        "volume_anomaly": 0.7837,
+        "_hash": "259d62f50c73"
       },
       "reasoning": {
         "alerts": [
-          "mttr"
+          "freshness",
+          "volume_anomaly"
         ],
-        "risk_score": 0.6254,
-        "decision": "intervene"
-      },
-      "actions": [
-        {
-          "action": "mitigate_mttr",
-          "priority": "high",
-          "status": "executed"
-        }
-      ]
-    },
-    {
-      "domain": "data_pipeline",
-      "perception": {
-        "freshness": 0.7481,
-        "schema_drift": 0.2053,
-        "volume_anomaly": 0.6236,
-        "_hash": "f62b7aa67e44"
-      },
-      "reasoning": {
-        "alerts": [],
-        "risk_score": 0.5257,
+        "risk_score": 0.5977,
         "decision": "monitor"
       },
       "actions": [
@@ -72,16 +81,14 @@
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.0969,
-        "canary_error": 0.6063,
-        "latency_p99": 0.8849,
-        "_hash": "3f835d6f0328"
+        "rollback_rate": 0.4943,
+        "canary_error": 0.3174,
+        "latency_p99": 0.6045,
+        "_hash": "2b1f6d370d58"
       },
       "reasoning": {
-        "alerts": [
-          "latency_p99"
-        ],
-        "risk_score": 0.5294,
+        "alerts": [],
+        "risk_score": 0.4721,
         "decision": "monitor"
       },
       "actions": [
@@ -101,33 +108,33 @@
   "summary": {
     "total_domains": 4,
     "interventions": 1,
-    "avg_risk": 0.5637
+    "avg_risk": 0.5598
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.5743,
+        "today": 0.6801,
         "yesterday": 0.5368,
-        "change_pct": 7.0,
+        "change_pct": 26.7,
         "direction": "up"
       },
       "incident_response": {
-        "today": 0.6254,
+        "today": 0.4893,
         "yesterday": 0.3863,
-        "change_pct": 61.9,
+        "change_pct": 26.7,
         "direction": "up"
       },
       "data_pipeline": {
-        "today": 0.5257,
+        "today": 0.5977,
         "yesterday": 0.7128,
-        "change_pct": -26.2,
+        "change_pct": -16.1,
         "direction": "down"
       },
       "deployment": {
-        "today": 0.5294,
+        "today": 0.4721,
         "yesterday": 0.4385,
-        "change_pct": 20.7,
+        "change_pct": 7.7,
         "direction": "up"
       }
     }
