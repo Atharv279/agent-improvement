@@ -1,18 +1,20 @@
 {
-  "timestamp": "2026-06-16T13:03:36.084779+00:00",
-  "cycle_id": "0f99466a",
+  "timestamp": "2026-06-16T18:39:44.427271+00:00",
+  "cycle_id": "6f91e6fb",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.6865,
-        "duplication": 0.0709,
-        "coverage": 0.0104,
-        "_hash": "25136814adb5"
+        "complexity": 0.803,
+        "duplication": 0.3408,
+        "coverage": 0.3023,
+        "_hash": "ca80557e7474"
       },
       "reasoning": {
-        "alerts": [],
-        "risk_score": 0.2559,
+        "alerts": [
+          "complexity"
+        ],
+        "risk_score": 0.482,
         "decision": "monitor"
       },
       "actions": [
@@ -26,45 +28,37 @@
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.7742,
-        "blast_radius": 0.9117,
-        "mttr": 0.2334,
-        "_hash": "4540dd72a588"
+        "severity": 0.0306,
+        "blast_radius": 0.5489,
+        "mttr": 0.1059,
+        "_hash": "8a9a1e343637"
       },
       "reasoning": {
-        "alerts": [
-          "severity",
-          "blast_radius"
-        ],
-        "risk_score": 0.6398,
-        "decision": "intervene"
+        "alerts": [],
+        "risk_score": 0.2285,
+        "decision": "monitor"
       },
       "actions": [
         {
-          "action": "mitigate_severity",
-          "priority": "high",
-          "status": "executed"
-        },
-        {
-          "action": "mitigate_blast_radius",
-          "priority": "high",
-          "status": "executed"
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
         }
       ]
     },
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.3717,
-        "schema_drift": 0.7778,
-        "volume_anomaly": 0.3616,
-        "_hash": "7ef888961031"
+        "freshness": 0.3319,
+        "schema_drift": 0.367,
+        "volume_anomaly": 0.9261,
+        "_hash": "cf48d1b61d18"
       },
       "reasoning": {
         "alerts": [
-          "schema_drift"
+          "volume_anomaly"
         ],
-        "risk_score": 0.5037,
+        "risk_score": 0.5417,
         "decision": "monitor"
       },
       "actions": [
@@ -78,16 +72,14 @@
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.0463,
-        "canary_error": 0.7666,
-        "latency_p99": 0.0056,
-        "_hash": "9b2466aa8a02"
+        "rollback_rate": 0.1718,
+        "canary_error": 0.5843,
+        "latency_p99": 0.0674,
+        "_hash": "6021335d6a3b"
       },
       "reasoning": {
-        "alerts": [
-          "canary_error"
-        ],
-        "risk_score": 0.2728,
+        "alerts": [],
+        "risk_score": 0.2745,
         "decision": "monitor"
       },
       "actions": [
@@ -100,40 +92,40 @@
     }
   ],
   "refinement": {
-    "adjustment": "tighten_thresholds",
-    "trend": "degrading",
+    "adjustment": "maintain",
+    "trend": "improving",
     "window": 4
   },
   "summary": {
     "total_domains": 4,
-    "interventions": 1,
-    "avg_risk": 0.418
+    "interventions": 0,
+    "avg_risk": 0.3817
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.2559,
+        "today": 0.482,
         "yesterday": 0.4897,
-        "change_pct": -47.7,
+        "change_pct": -1.6,
         "direction": "down"
       },
       "incident_response": {
-        "today": 0.6398,
+        "today": 0.2285,
         "yesterday": 0.6679,
-        "change_pct": -4.2,
+        "change_pct": -65.8,
         "direction": "down"
       },
       "data_pipeline": {
-        "today": 0.5037,
+        "today": 0.5417,
         "yesterday": 0.3765,
-        "change_pct": 33.8,
+        "change_pct": 43.9,
         "direction": "up"
       },
       "deployment": {
-        "today": 0.2728,
+        "today": 0.2745,
         "yesterday": 0.5038,
-        "change_pct": -45.9,
+        "change_pct": -45.5,
         "direction": "down"
       }
     }
