@@ -1,20 +1,20 @@
 {
-  "timestamp": "2026-07-06T12:15:33.693770+00:00",
-  "cycle_id": "10a01e4b",
+  "timestamp": "2026-07-06T17:15:56.507574+00:00",
+  "cycle_id": "c6908ce5",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.163,
-        "duplication": 0.7326,
-        "coverage": 0.7911,
-        "_hash": "4e2c0217e6a3"
+        "complexity": 0.9177,
+        "duplication": 0.0568,
+        "coverage": 0.0613,
+        "_hash": "b271d43bb003"
       },
       "reasoning": {
         "alerts": [
-          "coverage"
+          "complexity"
         ],
-        "risk_score": 0.5622,
+        "risk_score": 0.3453,
         "decision": "monitor"
       },
       "actions": [
@@ -28,45 +28,37 @@
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.8085,
-        "blast_radius": 0.6506,
-        "mttr": 0.8778,
-        "_hash": "82f3260da75c"
+        "severity": 0.0759,
+        "blast_radius": 0.7454,
+        "mttr": 0.3459,
+        "_hash": "0c92a4ed42e3"
       },
       "reasoning": {
-        "alerts": [
-          "severity",
-          "mttr"
-        ],
-        "risk_score": 0.779,
-        "decision": "intervene"
+        "alerts": [],
+        "risk_score": 0.3891,
+        "decision": "monitor"
       },
       "actions": [
         {
-          "action": "mitigate_severity",
-          "priority": "high",
-          "status": "executed"
-        },
-        {
-          "action": "mitigate_mttr",
-          "priority": "high",
-          "status": "executed"
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
         }
       ]
     },
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.5751,
-        "schema_drift": 0.8129,
-        "volume_anomaly": 0.1983,
-        "_hash": "268a3ce736bd"
+        "freshness": 0.5687,
+        "schema_drift": 0.2922,
+        "volume_anomaly": 0.8232,
+        "_hash": "502053027fa8"
       },
       "reasoning": {
         "alerts": [
-          "schema_drift"
+          "volume_anomaly"
         ],
-        "risk_score": 0.5288,
+        "risk_score": 0.5614,
         "decision": "monitor"
       },
       "actions": [
@@ -80,14 +72,14 @@
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.2011,
-        "canary_error": 0.1843,
-        "latency_p99": 0.6617,
-        "_hash": "34f5de58e573"
+        "rollback_rate": 0.7482,
+        "canary_error": 0.3051,
+        "latency_p99": 0.5679,
+        "_hash": "9fd549bbe5ee"
       },
       "reasoning": {
         "alerts": [],
-        "risk_score": 0.349,
+        "risk_score": 0.5404,
         "decision": "monitor"
       },
       "actions": [
@@ -100,41 +92,41 @@
     }
   ],
   "refinement": {
-    "adjustment": "maintain",
-    "trend": "improving",
+    "adjustment": "tighten_thresholds",
+    "trend": "degrading",
     "window": 4
   },
   "summary": {
     "total_domains": 4,
-    "interventions": 1,
-    "avg_risk": 0.5548
+    "interventions": 0,
+    "avg_risk": 0.459
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.5622,
+        "today": 0.3453,
         "yesterday": 0.5447,
-        "change_pct": 3.2,
-        "direction": "up"
+        "change_pct": -36.6,
+        "direction": "down"
       },
       "incident_response": {
-        "today": 0.779,
+        "today": 0.3891,
         "yesterday": 0.5455,
-        "change_pct": 42.8,
-        "direction": "up"
+        "change_pct": -28.7,
+        "direction": "down"
       },
       "data_pipeline": {
-        "today": 0.5288,
+        "today": 0.5614,
         "yesterday": 0.4263,
-        "change_pct": 24.0,
+        "change_pct": 31.7,
         "direction": "up"
       },
       "deployment": {
-        "today": 0.349,
+        "today": 0.5404,
         "yesterday": 0.5066,
-        "change_pct": -31.1,
-        "direction": "down"
+        "change_pct": 6.7,
+        "direction": "up"
       }
     }
   }
