@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-07-07T11:18:40.298116+00:00",
-  "cycle_id": "68bea99c",
+  "timestamp": "2026-07-07T16:41:52.106609+00:00",
+  "cycle_id": "65bd183b",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.5975,
-        "duplication": 0.2621,
-        "coverage": 0.1007,
-        "_hash": "739175e21777"
+        "complexity": 0.0827,
+        "duplication": 0.2794,
+        "coverage": 0.5798,
+        "_hash": "869aaa0e9530"
       },
       "reasoning": {
         "alerts": [],
-        "risk_score": 0.3201,
+        "risk_score": 0.314,
         "decision": "monitor"
       },
       "actions": [
@@ -26,19 +26,25 @@
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.253,
-        "blast_radius": 0.9948,
-        "mttr": 0.6078,
-        "_hash": "50dff4319819"
+        "severity": 0.926,
+        "blast_radius": 0.9344,
+        "mttr": 0.1099,
+        "_hash": "56baa811bab4"
       },
       "reasoning": {
         "alerts": [
+          "severity",
           "blast_radius"
         ],
-        "risk_score": 0.6185,
+        "risk_score": 0.6568,
         "decision": "intervene"
       },
       "actions": [
+        {
+          "action": "mitigate_severity",
+          "priority": "high",
+          "status": "executed"
+        },
         {
           "action": "mitigate_blast_radius",
           "priority": "high",
@@ -49,39 +55,43 @@
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.8045,
-        "schema_drift": 0.522,
-        "volume_anomaly": 0.2351,
-        "_hash": "459ba74bfa00"
+        "freshness": 0.8729,
+        "schema_drift": 0.9662,
+        "volume_anomaly": 0.5671,
+        "_hash": "351c068794c9"
       },
       "reasoning": {
         "alerts": [
-          "freshness"
+          "freshness",
+          "schema_drift"
         ],
-        "risk_score": 0.5205,
-        "decision": "monitor"
+        "risk_score": 0.8021,
+        "decision": "intervene"
       },
       "actions": [
         {
-          "action": "log_and_watch",
-          "priority": "low",
-          "status": "scheduled"
+          "action": "mitigate_freshness",
+          "priority": "high",
+          "status": "executed"
+        },
+        {
+          "action": "mitigate_schema_drift",
+          "priority": "high",
+          "status": "executed"
         }
       ]
     },
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.1791,
-        "canary_error": 0.8377,
-        "latency_p99": 0.1455,
-        "_hash": "f1ebdf6a2276"
+        "rollback_rate": 0.4584,
+        "canary_error": 0.4775,
+        "latency_p99": 0.1859,
+        "_hash": "94bf6a63ac35"
       },
       "reasoning": {
-        "alerts": [
-          "canary_error"
-        ],
-        "risk_score": 0.3874,
+        "alerts": [],
+        "risk_score": 0.3739,
         "decision": "monitor"
       },
       "actions": [
@@ -100,34 +110,34 @@
   },
   "summary": {
     "total_domains": 4,
-    "interventions": 1,
-    "avg_risk": 0.4616
+    "interventions": 2,
+    "avg_risk": 0.5367
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.3201,
+        "today": 0.314,
         "yesterday": 0.666,
-        "change_pct": -51.9,
+        "change_pct": -52.9,
         "direction": "down"
       },
       "incident_response": {
-        "today": 0.6185,
+        "today": 0.6568,
         "yesterday": 0.2695,
-        "change_pct": 129.5,
+        "change_pct": 143.7,
         "direction": "up"
       },
       "data_pipeline": {
-        "today": 0.5205,
+        "today": 0.8021,
         "yesterday": 0.6043,
-        "change_pct": -13.9,
-        "direction": "down"
+        "change_pct": 32.7,
+        "direction": "up"
       },
       "deployment": {
-        "today": 0.3874,
+        "today": 0.3739,
         "yesterday": 0.4058,
-        "change_pct": -4.5,
+        "change_pct": -7.9,
         "direction": "down"
       }
     }
