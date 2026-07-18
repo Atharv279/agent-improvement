@@ -1,20 +1,18 @@
 {
-  "timestamp": "2026-07-18T05:04:31.942374+00:00",
-  "cycle_id": "9f4c27a5",
+  "timestamp": "2026-07-18T09:44:06.170887+00:00",
+  "cycle_id": "2950cceb",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.9543,
-        "duplication": 0.4331,
-        "coverage": 0.1737,
-        "_hash": "42140a685b6f"
+        "complexity": 0.1082,
+        "duplication": 0.1705,
+        "coverage": 0.265,
+        "_hash": "9020bca65e97"
       },
       "reasoning": {
-        "alerts": [
-          "complexity"
-        ],
-        "risk_score": 0.5204,
+        "alerts": [],
+        "risk_score": 0.1812,
         "decision": "monitor"
       },
       "actions": [
@@ -28,39 +26,16 @@
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.3381,
-        "blast_radius": 0.9099,
-        "mttr": 0.6044,
-        "_hash": "2592a630fcfc"
+        "severity": 0.4215,
+        "blast_radius": 0.8642,
+        "mttr": 0.1243,
+        "_hash": "ccb5a3f09c5d"
       },
       "reasoning": {
         "alerts": [
           "blast_radius"
         ],
-        "risk_score": 0.6175,
-        "decision": "intervene"
-      },
-      "actions": [
-        {
-          "action": "mitigate_blast_radius",
-          "priority": "high",
-          "status": "executed"
-        }
-      ]
-    },
-    {
-      "domain": "data_pipeline",
-      "perception": {
-        "freshness": 0.0347,
-        "schema_drift": 0.9158,
-        "volume_anomaly": 0.1667,
-        "_hash": "f7eed1c9c365"
-      },
-      "reasoning": {
-        "alerts": [
-          "schema_drift"
-        ],
-        "risk_score": 0.3724,
+        "risk_score": 0.47,
         "decision": "monitor"
       },
       "actions": [
@@ -72,37 +47,54 @@
       ]
     },
     {
-      "domain": "deployment",
+      "domain": "data_pipeline",
       "perception": {
-        "rollback_rate": 0.8871,
-        "canary_error": 0.9942,
-        "latency_p99": 0.8775,
-        "_hash": "18737fb4eb49"
+        "freshness": 0.945,
+        "schema_drift": 0.8415,
+        "volume_anomaly": 0.3335,
+        "_hash": "1e353428d99e"
       },
       "reasoning": {
         "alerts": [
-          "rollback_rate",
-          "canary_error",
-          "latency_p99"
+          "freshness",
+          "schema_drift"
         ],
-        "risk_score": 0.9196,
+        "risk_score": 0.7067,
         "decision": "intervene"
       },
       "actions": [
         {
-          "action": "mitigate_rollback_rate",
+          "action": "mitigate_freshness",
           "priority": "high",
           "status": "executed"
         },
         {
-          "action": "mitigate_canary_error",
+          "action": "mitigate_schema_drift",
           "priority": "high",
           "status": "executed"
-        },
+        }
+      ]
+    },
+    {
+      "domain": "deployment",
+      "perception": {
+        "rollback_rate": 0.9783,
+        "canary_error": 0.6727,
+        "latency_p99": 0.142,
+        "_hash": "fac3489212ae"
+      },
+      "reasoning": {
+        "alerts": [
+          "rollback_rate"
+        ],
+        "risk_score": 0.5977,
+        "decision": "monitor"
+      },
+      "actions": [
         {
-          "action": "mitigate_latency_p99",
-          "priority": "high",
-          "status": "executed"
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
         }
       ]
     }
@@ -114,34 +106,34 @@
   },
   "summary": {
     "total_domains": 4,
-    "interventions": 2,
-    "avg_risk": 0.6075
+    "interventions": 1,
+    "avg_risk": 0.4889
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.5204,
+        "today": 0.1812,
         "yesterday": 0.5643,
-        "change_pct": -7.8,
+        "change_pct": -67.9,
         "direction": "down"
       },
       "incident_response": {
-        "today": 0.6175,
+        "today": 0.47,
         "yesterday": 0.433,
-        "change_pct": 42.6,
+        "change_pct": 8.5,
         "direction": "up"
       },
       "data_pipeline": {
-        "today": 0.3724,
+        "today": 0.7067,
         "yesterday": 0.2844,
-        "change_pct": 30.9,
+        "change_pct": 148.5,
         "direction": "up"
       },
       "deployment": {
-        "today": 0.9196,
+        "today": 0.5977,
         "yesterday": 0.4359,
-        "change_pct": 111.0,
+        "change_pct": 37.1,
         "direction": "up"
       }
     }
