@@ -1,41 +1,33 @@
 {
-  "timestamp": "2026-08-31T16:09:27.621719+00:00",
-  "cycle_id": "5236c383",
+  "timestamp": "2026-08-31T20:06:20.718860+00:00",
+  "cycle_id": "0c4714f0",
   "domains": [
     {
       "domain": "code_review",
       "perception": {
-        "complexity": 0.1185,
-        "duplication": 0.4348,
-        "coverage": 0.2702,
-        "_hash": "f9d6c5d6f7e7"
+        "complexity": 0.5378,
+        "duplication": 0.6949,
+        "coverage": 0.6076,
+        "_hash": "c437f03550be"
       },
       "reasoning": {
         "alerts": [],
-        "risk_score": 0.2745,
-        "decision": "monitor"
+        "risk_score": 0.6134,
+        "decision": "intervene"
       },
-      "actions": [
-        {
-          "action": "log_and_watch",
-          "priority": "low",
-          "status": "scheduled"
-        }
-      ]
+      "actions": []
     },
     {
       "domain": "incident_response",
       "perception": {
-        "severity": 0.9088,
-        "blast_radius": 0.3592,
-        "mttr": 0.0985,
-        "_hash": "7f81d56e1a12"
+        "severity": 0.07,
+        "blast_radius": 0.1099,
+        "mttr": 0.0777,
+        "_hash": "9bb68b7bdf93"
       },
       "reasoning": {
-        "alerts": [
-          "severity"
-        ],
-        "risk_score": 0.4555,
+        "alerts": [],
+        "risk_score": 0.0859,
         "decision": "monitor"
       },
       "actions": [
@@ -49,16 +41,14 @@
     {
       "domain": "data_pipeline",
       "perception": {
-        "freshness": 0.7848,
-        "schema_drift": 0.6933,
-        "volume_anomaly": 0.2405,
-        "_hash": "99f85ecee29e"
+        "freshness": 0.5053,
+        "schema_drift": 0.4618,
+        "volume_anomaly": 0.0088,
+        "_hash": "ae2d09c17df7"
       },
       "reasoning": {
-        "alerts": [
-          "freshness"
-        ],
-        "risk_score": 0.5729,
+        "alerts": [],
+        "risk_score": 0.3253,
         "decision": "monitor"
       },
       "actions": [
@@ -72,63 +62,61 @@
     {
       "domain": "deployment",
       "perception": {
-        "rollback_rate": 0.569,
-        "canary_error": 0.9874,
-        "latency_p99": 0.311,
-        "_hash": "3e4447eaa09f"
+        "rollback_rate": 0.3587,
+        "canary_error": 0.5992,
+        "latency_p99": 0.1051,
+        "_hash": "161d52d0c6a3"
       },
       "reasoning": {
-        "alerts": [
-          "canary_error"
-        ],
-        "risk_score": 0.6225,
-        "decision": "intervene"
+        "alerts": [],
+        "risk_score": 0.3543,
+        "decision": "monitor"
       },
       "actions": [
         {
-          "action": "mitigate_canary_error",
-          "priority": "high",
-          "status": "executed"
+          "action": "log_and_watch",
+          "priority": "low",
+          "status": "scheduled"
         }
       ]
     }
   ],
   "refinement": {
-    "adjustment": "tighten_thresholds",
-    "trend": "degrading",
+    "adjustment": "maintain",
+    "trend": "improving",
     "window": 4
   },
   "summary": {
     "total_domains": 4,
     "interventions": 1,
-    "avg_risk": 0.4814
+    "avg_risk": 0.3447
   },
   "delta": {
     "status": "compared",
     "deltas": {
       "code_review": {
-        "today": 0.2745,
+        "today": 0.6134,
         "yesterday": 0.7678,
-        "change_pct": -64.2,
+        "change_pct": -20.1,
         "direction": "down"
       },
       "incident_response": {
-        "today": 0.4555,
+        "today": 0.0859,
         "yesterday": 0.5829,
-        "change_pct": -21.9,
+        "change_pct": -85.3,
         "direction": "down"
       },
       "data_pipeline": {
-        "today": 0.5729,
+        "today": 0.3253,
         "yesterday": 0.3683,
-        "change_pct": 55.6,
-        "direction": "up"
+        "change_pct": -11.7,
+        "direction": "down"
       },
       "deployment": {
-        "today": 0.6225,
+        "today": 0.3543,
         "yesterday": 0.4072,
-        "change_pct": 52.9,
-        "direction": "up"
+        "change_pct": -13.0,
+        "direction": "down"
       }
     }
   }
